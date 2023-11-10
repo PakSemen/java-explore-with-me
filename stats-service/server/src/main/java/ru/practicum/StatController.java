@@ -37,6 +37,8 @@ public class StatController {
             @RequestParam(value = "unique", defaultValue = "false") Boolean unique
     ) {
         log.info("Get viewed stats with startDate {} endDate {}, uris {} unique {}", start, end, uris, unique);
-        return service.getStats(start, end, uris, unique);
+        Collection<ViewStatsDto> getStats = service.getStats(start, end, uris, unique);
+        log.info("getStats return {}", getStats);
+        return getStats;
     }
 }
